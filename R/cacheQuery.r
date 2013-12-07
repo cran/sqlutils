@@ -1,3 +1,5 @@
+#' Function for working with cached queries.
+#' 
 #' This will first look in the given directory for a CSV version of the file, if
 #' it exists, that will be read and returned. Otherwise it will execute the query
 #' and then saves a CSV file.
@@ -7,15 +9,15 @@
 #' @param filename the filename of the cached data file.
 #' @param query the query to execute.
 #' @param maxLevels the maximum number of levels a factor can have before being
-#'        converted to a character.
-#' @param ... other parameters passed to the \code{execQuery} function including
+#'        converted to a character vector.
+#' @param ... other parameters passed to the \code{\link{execQuery}} function including
 #'        query parameters.
-#' @param format either csv for comma separated value files or rda for R data files.
+#' @param format either \code{csv} for comma separated value files or \code{rda} for R data files.
 #' @return a data frame.
 #' @export
 cacheQuery <- function(query=NULL, dir=getwd(), 
 					   filename=getCacheFilename(query=query, dir=dir, ext=format, ...), 
-					   format='csv', 
+					   format='rda', 
 					   maxLevels=20, 
 					   ...) {
 	if(file.exists(filename)) {
@@ -58,6 +60,13 @@ getCacheFilename <- function(query, dir=getwd(), ext='csv', ...) {
 		for(i in 1:length(parms)) {
 			filename = paste(filename, parms[i], parmvals[parms[i]], sep='.')
 		}
+	}
+	if(nchar(filename) >= 251) {
+		warning(paste0('The cached filename is longer than 255 characters. ',
+			'This will cause an error on some operating systems. Consider ',
+			'specifying your own filename parameter. The filename will be ',
+			'truncated to 255 characters.'))
+		filename <- substr(filename, 1, 251)
 	}
 	filename = paste(filename, ext, sep='.')
 	return(filename)
