@@ -1,3 +1,7 @@
+CHANGES IN VERSION 1.2
+   o Support SQL style comments (thanks to Andy Choens for the pull request). SQL files can have -- and --'. The latter are used to generage the Roxygen style documentation.
+   o Added support for RJDBC database connections.
+
 CHANGES IN VERSION 1.1.2
    o Updates for compatibility with roxygen2 version 4.0
 

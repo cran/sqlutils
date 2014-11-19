@@ -1,8 +1,8 @@
 Package: sqlutils
 Type: Package
 Title: Utilities for working with SQL files.
-Version: 1.1.2
-Date: 2014-05-01
+Version: 1.2
+Date: 2014-11-19
 Author: Jason Bryer
 Maintainer: Jason Bryer <jason@bryer.org>
 URL: http://jason.bryer.org/sqlutils, http://github.com/jbryer/sqlutils
@@ -11,8 +11,9 @@ Description: This package provides utilities for working with a library of SQL
     files.
 License: GPL
 Depends: roxygen2, stringr, DBI
-Suggests: tcltk, RPostgreSQL, RODBC, RMySQL, RSQLite, sqldf, xtable
-Packaged: 2014-05-02 01:05:16 UTC; jbryer
+Suggests: tcltk, sqldf, xtable
+Enhances: RPostgreSQL, RODBC, RMySQL, RSQLite, RJDBC
+Packaged: 2014-11-19 16:16:18 UTC; jbryer
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2014-05-02 07:13:26
+Date/Publication: 2014-11-19 17:49:01

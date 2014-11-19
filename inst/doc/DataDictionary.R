@@ -3,9 +3,9 @@
 ###################################################
 ### code chunk number 1: setup
 ###################################################
-require(sqlutils)
-require(RSQLite)
-require(xtable)
+library(sqlutils)
+library(RSQLite)
+library(xtable)
 
 sqlfile <- paste(system.file(package='sqlutils'), '/db/students.db', sep='')
 m <- dbDriver("SQLite")
